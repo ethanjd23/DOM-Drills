@@ -71,5 +71,9 @@ function listItemMaker() {
     listItem.appendChild(listItemText);
     ul.appendChild(listItem);
     document.body.appendChild(ul);
+    ul.addEventListener("click", colorChanger);
+    ul.addEventListener("dblclick", function () {
+        ul.remove();
+    });
     x++;
 };
