@@ -1,4 +1,13 @@
+let colorArray = ['#FF6633', '#FFB399', '#FF33FF', '#FFFF99', '#00B3E6', 
+'#E6B333', '#3366E6', '#999966']
+
+let x = 1;
+
+
+
+
 window.addEventListener("DOMContentLoaded", function() {
+    let button = document.querySelector(".btn");
 
     let headContainer = document.createElement("div");
     headContainer.className = "header-container";
@@ -40,4 +49,27 @@ window.addEventListener("DOMContentLoaded", function() {
     headContainer.appendChild(h5);
     headContainer.appendChild(h6);
     document.body.appendChild(headContainer);
-})
+
+    let headerArray = [h1, h2, h3, h4, h5, h6];
+    
+    for (let i = 0; i < headerArray.length; i++) {
+        headerArray[i].addEventListener("dblclick", colorChanger)
+    };
+    
+    button.addEventListener("click", listItemMaker);
+});
+
+function colorChanger() {
+    let randomColor = colorArray[Math.floor(Math.random() * colorArray.length)];
+    event.target.style.color = randomColor;
+    };
+
+function listItemMaker() {
+    let ul = document.createElement("ul")
+    let listItem = document.createElement("li");
+    let listItemText = document.createTextNode("This is list item " + x);
+    listItem.appendChild(listItemText);
+    ul.appendChild(listItem);
+    document.body.appendChild(ul);
+    x++;
+};
